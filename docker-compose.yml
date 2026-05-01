@@ -1,0 +1,20 @@
+name: jellyfin-tizen-updater
+services:
+    jellyfin-tizen-updater:
+        platform: linux/amd64
+        network_mode: host
+        environment:
+            - GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            - TV_HOST=192.168.1.x
+            - TV_PORT=26101
+            - TIZEN_STUDIO=/home/tizen/tizen-studio
+            - DOWNLOAD_DIR=/data
+            - STATE_FILE=/data/state.json
+            - ASSET_NAME=Jellyfin-SmartHub.wgt
+            - TELEGRAM_BOT_TOKEN=xxxxx:xxxxxxxxxxxxxxxxxxxxxxxxxxx
+            - TELEGRAM_CHAT_ID=xxxxxxx
+        volumes:
+            - ./data:/data
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro
+        image: bai0012/jellyfin-tizen-updater:latest
